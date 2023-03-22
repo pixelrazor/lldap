@@ -1,5 +1,6 @@
 use crate::{
     components::{
+        avatar::Avatar,
         delete_user::DeleteUser,
         router::{AppRoute, Link},
     },
@@ -126,7 +127,12 @@ impl UserTable {
         let link = &ctx.link();
         html! {
           <tr key={user.id.clone()}>
-              <td><Link to={AppRoute::UserDetails{user_id: user.id.clone()}}>{&user.id}</Link></td>
+              <td>
+                <Link to={AppRoute::UserDetails{user_id: user.id.clone()}}>
+                    <span style="margin-right: 10px;"><Avatar username={user.id.clone()} width=40 height=40 /></span>
+                    {&user.id}
+                </Link>
+              </td>
               <td>{&user.email}</td>
               <td>{&user.display_name}</td>
               <td>{&user.first_name}</td>

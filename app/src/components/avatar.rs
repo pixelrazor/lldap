@@ -93,7 +93,7 @@ impl Component for Avatar {
         match &self.avatar {
             Some(avatar) => html! {
                 <img
-                        id="avatarDisplay"
+                        class="avatar"
                         src={format!("data:image/jpeg;base64, {}", avatar)}
                         style={format!("max-height:{}px;max-width:{}px;height:auto;width:auto;", ctx.props().height,ctx.props().width)}
                         alt="Avatar" />
